@@ -3,7 +3,7 @@
 Simple kotlin implementation of the [XTEA(eXtended TEA)](https://en.wikipedia.org/wiki/XTEA) encryption algorithm. 
 
 ## Usage
-Add the following dependency into `dependencies` section of your `build.gradle.kts`
+Add the following dependency into the `dependencies` section of your `build.gradle.kts`
 ``` kotlin
     implementation("de.quartettmobile.xtea-kt:xtea-kt:1.0")
 ```
