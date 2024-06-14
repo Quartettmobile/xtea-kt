@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.jvm)
     `java-library`
     id("maven-publish")
+    id("org.jetbrains.dokka") version "1.9.20"
 }
 
 repositories {
@@ -55,6 +56,20 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(11))
     }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.register<Jar>("dokkaHtmlJar") {
+    dependsOn(tasks.dokkaHtml)
+    from(tasks.dokkaHtml.flatMap { it.outputDirectory })
+    archiveClassifier.set("html-docs")
+}
+
+tasks.register<Jar>("dokkaJavadocJar") {
+    dependsOn(tasks.dokkaJavadoc)
+    from(tasks.dokkaJavadoc.flatMap { it.outputDirectory })
+    archiveClassifier.set("javadoc")
 }
 
 tasks.named<Test>("test") {
