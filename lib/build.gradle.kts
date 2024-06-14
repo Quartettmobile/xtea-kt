@@ -1,10 +1,24 @@
 plugins {
     alias(libs.plugins.jvm)
     `java-library`
+    id("maven-publish")
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "de.quartettmobile.xtea-kt"
+            artifactId = "xtea-kt"
+            version = "1.0"
+
+            from(components["java"])
+        }
+    }
 }
 
 dependencies {
@@ -15,7 +29,7 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(11))
     }
 }
 
