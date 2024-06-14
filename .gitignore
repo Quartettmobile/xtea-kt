@@ -4,3 +4,16 @@
 
 # Ignore Gradle build output directory
 build
+
+# IntelliJ files
+.idea
+**/.idea/*
+!/.idea/vcs.xml
+!/.idea/codeStyles
+!/.idea/copyright
+out/
+*.iml
+
+local.properties
+/local.properties
+.DS_Store
