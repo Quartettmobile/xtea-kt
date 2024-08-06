@@ -13,7 +13,7 @@ repositories {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "de.quartettmobile.xtea-kt"
+            groupId = "de.quartettmobile"
             artifactId = "xtea-kt"
             version = "1.0"
 
